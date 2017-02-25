@@ -31,7 +31,7 @@ echo "Going to be installing the LXDE."
 pacman -S lxde --noconfirm > /dev/null 2>&1
 
 echo "Enablying LXDM on boot."
-systemctl enable lxdm
+systemctl enable lxdm 2>&1
 
 
 echo "Lets make the vagrant use auto-login when booting LXDM."
