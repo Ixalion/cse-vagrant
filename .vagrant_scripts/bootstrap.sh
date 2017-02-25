@@ -21,8 +21,9 @@ mv -f -T /etc/pacman.d/mirrorlist.pacnew /etc/pacman.d/mirrorlist > /dev/null 2>
 sed -i '/Server/s/^#//g' /etc/pacman.d/mirrorlist > /dev/null 2>&1
 
 
-echo "Creating the shared directory in /home/vagrant/shared"
+echo "Creating the shared directorys"
 mkdir -p /home/vagrant/shared
+mkdir -p /home/vagrant/grader_scripts
 
 echo "Going to be installing Xorg now. "
 pacman -S mesa-libgl xorg-server --noconfirm > /dev/null 2>&1
@@ -66,5 +67,7 @@ pacman -S eclipse-java --noconfirm > /dev/null 2>&1
 echo "We are now going to install a few more dependencies that will be used later on."
 pacman -S wget --noconfirm > /dev/null 2>&1
 
+echo "We are going to now install ruby onto the system."
+pacman -S ruby --noconfirm > /dev/null 2>&1
 
 echo "Finished bootstrap.sh"

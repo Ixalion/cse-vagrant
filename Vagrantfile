@@ -39,6 +39,7 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   config.vm.synced_folder "./shared", "/home/vagrant/shared"
   config.vm.synced_folder "./workspace", "/home/vagrant/workspace"
+  config.vm.synced_folder "./grader_scripts", "/home/vagrant/grader_scripts"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -62,9 +63,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "workspace", type: "shell", path: "./.vagrant_scripts/workspace.sh"
 
+  config.vm.provision "eclipse", type: "shell", path: "./.vagrant_scripts/eclipse.sh"
+
   # Reload the vm prior to starting.
   config.vm.provision :reload
-
-  config.vm.provision "eclipse", type: "shell", path: "./.vagrant_scripts/eclipse.sh"
 
 end
