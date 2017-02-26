@@ -65,7 +65,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "eclipse", type: "shell", path: "./.vagrant_scripts/eclipse.sh"
 
-  # Reload the vm prior to starting.
-  config.vm.provision :reload
+  config.vm.provision "restart", type: "shell", path: "./.vagrant_scripts/restart.sh"
 
 end

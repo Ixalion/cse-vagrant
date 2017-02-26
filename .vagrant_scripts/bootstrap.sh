@@ -70,4 +70,7 @@ pacman -S wget --noconfirm > /dev/null 2>&1
 echo "We are going to now install ruby onto the system."
 pacman -S ruby --noconfirm > /dev/null 2>&1
 
+echo "We are going to now install the Google Chrome browser onto the system."
+sudo -u vagrant pacaur -S google-chrome --noconfirm --noedit > /dev/null 2>&1
+
 echo "Finished bootstrap.sh"

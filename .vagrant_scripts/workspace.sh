@@ -2,19 +2,17 @@ echo "Initializing workspace.sh"
 
 echo "Going to setup the OSU workspace"
 
-echo "Deleting any pre-existing workspace"
-rm -rf /vagrant/home/workspace 2>/dev/null
 echo "Downloading and extracting the new workspace"
 sudo -u vagrant bash -c "(\
 cd /home/vagrant;\
 wget http://cse.osu.edu/software/common/OsuCseWsTemplate.zip;\
-unzip OsuCseWsTemplate.zip;\
-)"
+unzip -o OsuCseWsTemplate.zip;\
+)" 2> /dev/null
 echo "Downloading the components.jar"
 sudo -u vagrant bash -c "(\
 cd /home/vagrant;\
 wget http://cse.osu.edu/software/common/components.jar;\
-)"
+)" 2> /dev/null
 
 echo "Going to setup the eclipse metadata"
 sudo -u vagrant echo -e "\
@@ -30,10 +28,10 @@ org.eclipse.jdt.core.classpathVariable.OSU_CSE_LIBRARY=/home/vagrant/components.
 org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled \n\
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled \n\
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.7 \n\
-org.eclipse.jdt.core.compiler.compliance=1.7 \n\
+org.eclipse.jdt.core.compiler.compliance=1.4 \n\
 org.eclipse.jdt.core.compiler.problem.assertIdentifier=error \n\
 org.eclipse.jdt.core.compiler.problem.enumIdentifier=error \n\
-org.eclipse.jdt.core.compiler.source=1.7 \n\
+org.eclipse.jdt.core.compiler.source=1.4 \n\
 org.eclipse.jdt.core.formatter.alignment_for_arguments_in_enum_constant=48 \n\
 org.eclipse.jdt.core.formatter.alignment_for_enum_constants=48 \n\
 org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_enum_declaration=48 \n\
